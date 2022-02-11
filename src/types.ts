@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-const CHARACTERS = gql`
+const CHARACTERS = gql` 
   query {
     characters(page: 2, filter: { name: "rick" }) {
         info {

@@ -25,7 +25,8 @@ export default function Header() {
       }
 
     return (
-        <div className="header">
+        <>
+            <div className="header">
                 <h2>Favorite Characters</h2>
                 <p>In the Rick and Morty Universe</p>     
             <form>
@@ -49,6 +50,12 @@ export default function Header() {
                     <i className="fa fa-chevron-down"></i>
                 </div>
             </form>
+            </div>
+            <div>
+            <div className="tabs">
+                <button className="tab tab-active">List</button>
+                <button className="tab">Favorites</button>
+            </div>
             <div>
                 <ul>
                     { data?.characters?.results
@@ -72,5 +79,6 @@ export default function Header() {
                 </ul>
             </div>
         </div>
+        </> 
     )
 }

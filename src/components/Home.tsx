@@ -1,7 +1,7 @@
 import { useState, useRef, FormEvent } from 'react'
 import { useQuery } from "@apollo/client";
 import CHARACTERS from '../types';
-import "./Header.css"
+import "./Home.css"
 
 export default function Header() {
     const [characters, setCharacters] = useState<string | null>(null);
@@ -67,12 +67,14 @@ export default function Header() {
                         }
                     })
                     .map((item: any, key: number) => (
-                        <li key={key}>
-                            <div>
+                        <li className="character-container" key={key}>
+                            <div className={`photo photo-${item.status}`} >
                                 <img src={item.image} />
                             </div>
-                            <span>{item.status}</span>
-                            <p>{item.name}</p>
+                            <div className="character-content">
+                                <h6>{item.name}</h6>
+                                <span className={`status color-${item.status}`}>{item.status}</span>
+                            </div>
                         </li>
                         )
                     )}

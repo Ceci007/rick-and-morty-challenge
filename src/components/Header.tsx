@@ -16,8 +16,8 @@ export default function Header() {
     const onTextChange = (event: FormEvent<HTMLInputElement>) => {
         const newValue = event.currentTarget.value;
         setSearchQuery(newValue);
-        console.log(data.characters.results[0].name);
-        console.log(data?.characters?.location);
+       // console.log(data.characters.results[0].name);
+        console.log(data?.location?.name);
     } 
 
     const onOptionSelect = (value: string) => () => {
@@ -30,16 +30,24 @@ export default function Header() {
                 <p>In the Rick and Morty Universe</p>     
             <form>
                <input 
-                    type="text" 
+                    type="search" 
                     onChange={onTextChange}
                     className="form-control"
                     placeholder="Character name..."
                 />
-                <select className="form-control" defaultValue={option} onChange={onOptionSelect(option)}>
-                    {
-                        
-                    }
-                </select>
+                <div className="position-relative">
+                    <select className="form-control"  defaultValue="" onChange={onOptionSelect(option)}>
+                        <option disabled={true} hidden value="" >All Locations</option>
+                        <option disabled={true} value="">Choose a Location</option>
+                        {
+                            [1, 2, 3, 4, 5, 6].map((item, key) => (
+                                    <option key={key}>{data?.location?.name}</option>
+                                )
+                            )
+                        }
+                    </select>
+                    <i className="fa fa-chevron-down"></i>
+                </div>
             </form>
             <div>
                 <ul>
@@ -52,9 +60,13 @@ export default function Header() {
                         }
                     })
                     .map((item: any, key: number) => (
-                        <div>
-                            <li key={key}>{item.name}</li>
-                        </div>
+                        <li key={key}>
+                            <div>
+                                <img src={item.image} />
+                            </div>
+                            <span>{item.status}</span>
+                            <p>{item.name}</p>
+                        </li>
                         )
                     )}
                 </ul>

@@ -7,11 +7,14 @@ const CHARACTERS = gql`
           count
         }
         results {
-          name
+            name,
+            status,
+            image
         }
       }
       location(id: 1) {
-        id
+        id,
+        name
       }
       episodesByIds(ids: [1, 2]) {
         id

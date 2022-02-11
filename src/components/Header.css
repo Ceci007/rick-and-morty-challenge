@@ -33,7 +33,7 @@ form {
     padding: 10px 30px;
     border-radius: 30px;
     background: rgba(255, 255, 255, 0.3);
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -49,7 +49,37 @@ form {
     color: rgba(255, 255, 255, 0.7);
   }
 
+
 .form-control:focus {
     border: none;
     outline: none;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;       /* Remove default arrow */
+    background-image: url("");   /* Add custom arrow */
+    cursor: pointer;
+ }
+
+ select::-ms-expand {
+    display: none; /* Hide the default arrow in Internet Explorer 10 and Internet Explorer 11 */
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-relative i {
+    position: absolute;
+    top: 16px;
+    right: 30px;
+    font-size: 30px;
+    color:rgba(255, 255, 255, 0.7);
+}
+
+option {
+    color:rgba(0,0,0, 0.5);
+    padding: 10px 0;
 }

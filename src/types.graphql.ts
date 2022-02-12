@@ -9,7 +9,11 @@ const CHARACTERS = gql`
         results {
             name,
             status,
-            image
+            image,
+            location {
+              id,
+              name
+            },
         }
       }
       location(id: 1) {

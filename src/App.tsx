@@ -1,11 +1,11 @@
-import Header from "./pages/Home/Home";
-import "./styles.css";
+import Home from "./pages/Home/Home"
+import "./styles.css"
 
 export default function App() {
   return (
-  <div className="App">
-    <Header />
-  </div> 
+    <div className="app-container">
+      <Home />
+    </div>
   )
 }
  

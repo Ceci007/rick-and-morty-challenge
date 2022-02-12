@@ -80,36 +80,12 @@ select {
 }
 
 option {
-    color:rgba(0,0,0, 0.5);
+    color:rgba(255,255,255, 0.5);
     padding: 10px 0;
 }
 
-.tabs {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
-}
-
-.tab {
-    font-size: 20px;
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 25px 30px;
-    width: 100%;
-    border-bottom: 2px solid transparent;
-    color:rgba(255, 255, 255, 0.8);
-}
-
-.tab-active {
-    border-bottom: 2px solid #97ce4c;
-    color: #97ce4c;
-}
-
-button {
-    border: none;
-    background: none;   
+.select-group {
+    background-color: rgba(0,0,0, 0.6);
+    border-radius: 10px;
+    margin-top: 20px;
 }

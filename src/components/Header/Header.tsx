@@ -25,13 +25,15 @@ export default function Header(props: any) {
                 <div className="position-relative">
                     <select className="form-control"  defaultValue="" onChange={onOptionSelect(option)}>
                         <option disabled={true} hidden value="" >All Locations</option>
-                        <option disabled={true} value="">Choose a Location</option>
-                        {
-                            [1, 2, 3, 4, 5, 6].map((item, key) => (
-                                    <option key={key}>{data?.location?.name}</option>
+                        <optgroup className="select-group" >
+                            <option disabled={true} value="">Choose a Location</option>
+                            {
+                                data?.characters?.results.map((item: any, key: number) => (
+                                        <option key={key}>{item.location.name}</option>
+                                    )
                                 )
-                            )
-                        }
+                            }
+                        </optgroup>
                     </select>
                     <i className="fa fa-chevron-down"></i>
                 </div>

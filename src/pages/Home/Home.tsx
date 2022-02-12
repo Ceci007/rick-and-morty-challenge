@@ -1,14 +1,15 @@
 import { useState, useRef, FormEvent } from 'react'
 import { useQuery } from "@apollo/client";
-import CHARACTERS from '../../types';
+import CHARACTERS from '../../types.graphql';
 import Header from '../../components/Header/Header';
 import "./Home.css"
 
 export default function Home() {
-    const { data } = useQuery(CHARACTERS);
-    // const [characters, setCharacters] = useState<string | null>(null);
-    const [searchQuery, setSearchQuery] = useState<string>("");
+    const { data } = useQuery(CHARACTERS)
+    const [characters, setCharacters] = useState([])
+    const [searchQuery, setSearchQuery] = useState<string>("")
     const [option, setOption] = useState<string>("")
+    const [tabActive, setTabActive] = useState(true);
     // const [loading, setLoading] = useState<boolean>(false);
 
     const inputRef = useRef<HTMLInputElement | null>(null);
@@ -34,11 +35,12 @@ export default function Home() {
                 option={option}
             />
             <div>
-            <div className="tabs">
-                <button className="tab tab-active">List</button>
-                <button className="tab">Favorites</button>
-            </div>
+                <div className="tabs">
+                    <button onClick={() => setTabActive(!tabActive)} className={tabActive ? "tab tab-active" : "tab"} >List</button>
+                    <button onClick={() => setTabActive(!tabActive)} className={tabActive ? "tab" : "tab tab-active"} >Favorites</button>
+                </div>
             <div>
+            {tabActive ?
                 <ul>
                     { data?.characters?.results
                     .filter((item : any) => {
@@ -60,7 +62,13 @@ export default function Home() {
                         </li>
                         )
                     )}
-                </ul>
+                </ul> :
+                <div className='favorites-list'>
+                    <p>
+                        No favorites selected
+                    </p>
+                </div>
+                }
             </div>
         </div>
         </> 

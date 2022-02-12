@@ -13,7 +13,7 @@ This is the admision interview challenge from Patient Studio to see if the devel
 
 ## Live Demo
 
-[Live Demo Link](https://rick-and-morty-ceci.netlify.app/)
+[Live Demo Link](https://rick-and-morty-challenge-ceci.netlify.app/)
 
 ## Author
 ### Cecilia Benitez

@@ -53,6 +53,7 @@ export default function Home() {
                     .map((item: any, key: number) => (
                         <li className="character-container" key={key}>
                             <div className={`photo photo-${item.status}`} >
+                                {/* if I have had more time I would add lazy loading to the images */}
                                 <img src={item.image} />
                             </div>
                             <div className="character-content">
